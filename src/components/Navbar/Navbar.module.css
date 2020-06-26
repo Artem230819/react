@@ -6,6 +6,6 @@
     text-decoration: none;
     color: white;
 }
-.item.active a{
+.item .activeLink a{
     color: gold;
 }
