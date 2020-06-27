@@ -7,7 +7,8 @@ const MyPosts = () => {
         <div>
             My post
             <div>
-                New post
+                <textarea ></textarea>
+                <button>Add post</button>
             </div>
             <div className={c.posts}>
                 <Post message="Hello" like={"парамап"}/>
