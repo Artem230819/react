@@ -7,22 +7,22 @@ const Dialogs = (props) => {
         <div className={c.dialogs}>
             <div className={c.dialogsItems}>
                 <div className={c.dialog}>
-                    <NavLink to="#" activeClassName={c.active} >Sasha</NavLink>
+                    <NavLink to="/dialogs/1" activeClassName={c.active} >Sasha</NavLink>
                 </div>
                 <div className={c.dialog}>
-                    <NavLink to="#" activeClassName={c.active}>Artem</NavLink>
+                    <NavLink to="/dialogs/2" activeClassName={c.active}>Artem</NavLink>
                 </div>
                 <div className={c.dialog}>
-                    <NavLink to="#" activeClassName={c.active}>Lena</NavLink>
+                    <NavLink to="/dialogs/3" activeClassName={c.active}>Lena</NavLink>
                 </div>
                 <div className={c.dialog}>
-                    <NavLink to="#" activeClassName={c.active}>Vika</NavLink>
+                    <NavLink to="/dialogs/4" activeClassName={c.active}>Vika</NavLink>
                 </div>
                 <div className={c.dialog}>
-                    <NavLink to="#" activeClassName={c.active}>Gordey</NavLink>
+                    <NavLink to="/dialogs/5" activeClassName={c.active}>Gordey</NavLink>
                 </div>
                 <div className={c.dialog}>
-                    <NavLink to="#" activeClassName={c.active}>Ivan</NavLink>
+                    <NavLink to="/dialogs/6" activeClassName={c.active}>Ivan</NavLink>
                 </div>
             </div>
             <div className="messeges">
