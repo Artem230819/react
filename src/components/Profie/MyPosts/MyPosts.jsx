@@ -2,6 +2,7 @@ import React from 'react';
 import c from "./MyPosts.module.css"
 import Post from "./Post/Post";
 
+
 let postData = [
     {id: 1, messege: "Hello", like: 10},
     {id: 2, messege: "Hi you hi", like: 12},
@@ -12,7 +13,7 @@ let postData = [
 
 let postElement = postData.map( p => <Post message={p.messege} like={p.like}/>);
 
-const MyPosts = () => {
+const MyPosts = (props) => {
     return (
         <div>
             My post
