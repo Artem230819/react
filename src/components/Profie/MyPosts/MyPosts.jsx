@@ -3,17 +3,20 @@ import c from "./MyPosts.module.css"
 import Post from "./Post/Post";
 
 
-let postData = [
-    {id: 1, messege: "Hello", like: 10},
-    {id: 2, messege: "Hi you hi", like: 12},
-    {id: 3, messege: "Hi you hi", like: 20},
-    {id: 4, messege: "Hi you hi", like: 80},
-    {id: 5, messege: "Hi you hi", like: 1000}
-]
-
-let postElement = postData.map( p => <Post message={p.messege} like={p.like}/>);
+// let postData = [
+//     {id: 1, messege: "Hello", like: 10},
+//     {id: 2, messege: "Hi you hi", like: 12},
+//     {id: 3, messege: "Hi you hi", like: 20},
+//     {id: 4, messege: "Hi you hi", like: 80},
+//     {id: 5, messege: "Hi you hi", like: 1000}
+// ]
+//
+// let postElement = postData.map( p => <Post message={p.messege} like={p.like}/>);
 
 const MyPosts = (props) => {
+
+    let postElement = props.postData.map( p => <Post message={p.messege} like={p.like}/>);
+
     return (
         <div>
             My post
