@@ -9,11 +9,11 @@ import Messege from "./Messege/Messege";
 
 const Dialogs = (props) => {
 
-    let dialogElement = props.dialogData.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let dialogElement = props.state.dialogPage.dialogData.map(d => <DialogItem name={d.name} id={d.id}/>);
 
 
 
-    let messegeElement = props.messegeData.map(m => <Messege messege={m.messege}/>)
+    let messegeElement = props.state.dialogPage.messegeData.map(m => <Messege messege={m.messege}/>)
 
     return (
         <div className={c.dialogs}>
