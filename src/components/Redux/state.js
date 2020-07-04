@@ -18,12 +18,12 @@ let state ={
             {id: 5, messege: "Good"}
         ],
         dialogData: [
-            {id: 1, name: "Sasha"},
-            {id: 2, name: "Artem"},
-            {id: 3, name: "Lena"},
-            {id: 4, name: "Vika"},
-            {id: 5, name: "Gordey"},
-            {id: 6, name: "Ivan"}
+            {id: 1, name: "Sasha", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
+            {id: 2, name: "Artem", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
+            {id: 3, name: "Lena", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
+            {id: 4, name: "Vika", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
+            {id: 5, name: "Gordey", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
+            {id: 6, name: "Ivan", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"}
         ]
     }
 }

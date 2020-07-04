@@ -6,16 +6,24 @@
 .dialogsItems{
 
 }
-
+.dialog {
+    display: flex;
+}
 .dialog a{
     text-decoration: none;
 }
 .dialog .active {
     color: gold;
 }
-.messeges{
-
+.dialog img {
+    width: 20px;
+    height: 20px;
 }
+.messeges{
+}
+
 .messege{
+    float: left;
+    width: 40%;
 
 }
