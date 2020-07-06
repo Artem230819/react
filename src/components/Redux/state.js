@@ -1,3 +1,4 @@
+import {rerender} from "../../render";
 
 let state ={
     profilePage: {
@@ -28,6 +29,25 @@ let state ={
     }
 }
 
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 5,
+        messege: postMessage,
+        like: 0
+    };
+    state.profilePage.postData.push(newPost);
+    rerender(state);
+}
+
+export let addMessage = (postMessage) =>{
+    debugger;
+    let newMassege = {
+        id: 6,
+        messege: postMessage
+    }
+    state.dialogPage.messegeData.push(newMassege);
+    rerender(state);
+}
 
 
 export default state;
