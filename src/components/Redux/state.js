@@ -8,7 +8,8 @@ let state ={
             {id: 3, messege: "Hi you hi", like: 20},
             {id: 4, messege: "Hi you hi", like: 80},
             {id: 5, messege: "Hi you hi", like: 1000}
-        ]
+        ],
+        newPostText: "it-kamasutra"
     },
     dialogPage: {
        messegeData: [
@@ -25,7 +26,8 @@ let state ={
             {id: 4, name: "Vika", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
             {id: 5, name: "Gordey", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
             {id: 6, name: "Ivan", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"}
-        ]
+        ],
+        newMessegeText: "it-kamasutra"
     }
 }
 
@@ -39,8 +41,12 @@ export let addPost = (postMessage) => {
     rerender(state);
 }
 
+export let updateNewPostText = (newText) =>{
+    state.profilePage.newPostText = newText;
+    rerender(state);
+}
+
 export let addMessage = (postMessage) =>{
-    debugger;
     let newMassege = {
         id: 6,
         messege: postMessage
@@ -49,5 +55,9 @@ export let addMessage = (postMessage) =>{
     rerender(state);
 }
 
+export let updateNewMessegeText = (newText) =>{
+    state.dialogPage.newMessegeText = newText;
+    rerender(state);
+}
 
 export default state;

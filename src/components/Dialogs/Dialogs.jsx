@@ -13,13 +13,20 @@ const Dialogs = (props) => {
     let newMessegeElement = React.createRef();
 
     let addMessege = () => {
-        debugger;
         let text = newMessegeElement.current.value;
         props.addMessage(text);
-        newMessegeElement.current.value = '';
+        props.updateNewMessegeText("");
+    }
+
+    let onMessageChange = () => {
+        let text = newMessegeElement.current.value;
+        props.updateNewMessegeText(text)
     }
 
     let messegeElement = props.state.dialogPage.messegeData.map(m => <Messege messege={m.messege}/>)
+
+
+
     return (
         <div className={c.dialogs}>
             <div className={c.dialogsItems}>
@@ -29,7 +36,11 @@ const Dialogs = (props) => {
                 {messegeElement}
             </div>
             <div>
-            <textarea ref={newMessegeElement}></textarea>
+            <textarea
+                ref={newMessegeElement}
+                onChange={onMessageChange}
+                value={props.state.dialogPage.newMessegeText}
+            ></textarea>
             <button onClick={addMessege}>New messege</button>
             </div>
         </div>
