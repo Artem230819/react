@@ -1,4 +1,4 @@
-import {rerender} from "../../render";
+
 
 let state ={
     profilePage: {
@@ -31,7 +31,11 @@ let state ={
     }
 }
 
-export let addPost = (postMessage) => {
+let rerender = () =>{
+
+}
+
+export const addPost = (postMessage) => {
     let newPost = {
         id: 5,
         messege: postMessage,
@@ -41,12 +45,12 @@ export let addPost = (postMessage) => {
     rerender(state);
 }
 
-export let updateNewPostText = (newText) =>{
+export const updateNewPostText = (newText) =>{
     state.profilePage.newPostText = newText;
     rerender(state);
 }
 
-export let addMessage = (postMessage) =>{
+export const addMessage = (postMessage) =>{
     let newMassege = {
         id: 6,
         messege: postMessage
@@ -55,9 +59,14 @@ export let addMessage = (postMessage) =>{
     rerender(state);
 }
 
-export let updateNewMessegeText = (newText) =>{
+export const updateNewMessegeText = (newText) =>{
     state.dialogPage.newMessegeText = newText;
     rerender(state);
 }
+
+export const subscriber = (observer) =>{
+    rerender = observer
+}
+
 
 export default state;
