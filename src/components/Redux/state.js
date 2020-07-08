@@ -5,21 +5,21 @@ let store = {
     _state: {
         profilePage: {
             postData: [
-                {id: 1, messege: "Hello", like: 10},
-                {id: 2, messege: "Hi you hi", like: 12},
-                {id: 3, messege: "Hi you hi", like: 20},
-                {id: 4, messege: "Hi you hi", like: 80},
-                {id: 5, messege: "Hi you hi", like: 1000}
+                {id: 1, message: "Hello", like: 10},
+                {id: 2, message: "Hi you hi", like: 12},
+                {id: 3, message: "Hi you hi", like: 20},
+                {id: 4, message: "Hi you hi", like: 80},
+                {id: 5, message: "Hi you hi", like: 1000}
             ],
             newPostText: "it-kamasutra"
         },
         dialogPage: {
-            messegeData: [
-                {id: 1, messege: "Hi"},
-                {id: 2, messege: "My name"},
-                {id: 3, messege: "Good"},
-                {id: 4, messege: "Good"},
-                {id: 5, messege: "Good"}
+            messageData: [
+                {id: 1, message: "Hi"},
+                {id: 2, message: "My name"},
+                {id: 3, message: "Good"},
+                {id: 4, message: "Good"},
+                {id: 5, message: "Good"}
             ],
             dialogData: [
                 {id: 1, name: "Sasha", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
@@ -29,43 +29,72 @@ let store = {
                 {id: 5, name: "Gordey", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"},
                 {id: 6, name: "Ivan", img: "https://bumper-stickers.ru/48643-thickbox_default/panda-v-ochkah.jpg"}
             ],
-            newMessegeText: "it-kamasutra"
+            newMessageText: "it-kamasutra"
         }
     },
-    getState(){
-      return this._state;
+    _collSubscriber() {
     },
-    _collSubscriber () {
+
+    getState() {
+        return this._state;
     },
-    addPost ()  {
-        let newPost = {
-            id: 5,
-            messege: this._state.profilePage.newPostText,
-            like: 0
-        };
-        this._state.profilePage.postData.push(newPost);
-        this._collSubscriber(this._state);
-    },
-    updateNewPostText (newText){
-        this._state.profilePage.newPostText = newText;
-        this._collSubscriber(this._state);
-    },
-    addMessage (postMessage){
-        let newMassege = {
-            id: 6,
-            messege: this._state.dialogPage.newMessegeText
-        }
-        this._state.dialogPage.messegeData.push(newMassege);
-        this._collSubscriber(this._state);
-    },
-    updateNewMessegeText (newText) {
-        this._state.dialogPage.newMessegeText = newText;
-        this._collSubscriber(this._state);
-    },
-    subscriber (observer){
+    subscriber(observer) {
         this._collSubscriber = observer;
+    },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                like: 0
+            };
+            this._state.profilePage.postData.push(newPost);
+            this._state.profilePage.newPostText='';
+            this._collSubscriber(this._state);
+
+        } else if (action.type === 'UP-DATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._collSubscriber(this._state);
+
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMassage = {
+                id: 6,
+                message: this._state.dialogPage.newMessageText
+            };
+            this._state.dialogPage.messageData.push(newMassage);
+            this._state.dialogPage.newMessageText='';
+            this._collSubscriber(this._state);
+
+        } else if (action.type === 'UP-DATE-NEW-MESSAGE-TEXT') {
+            this._state.dialogPage.newMessageText = action.newText;
+            this._collSubscriber(this._state);
+        }
     }
 }
+
+
+
+//     addPost ()  {
+//
+//     },
+//     updateNewPostText (newText){
+//
+//     },
+// //     addMessage (){
+//         let newMassege = {
+//             id: 6,
+//             messege: this._state.dialogPage.newMessegeText
+//         }
+//         this._state.dialogPage.messegeData.push(newMassege);
+//         this._collSubscriber(this._state);
+// //     },
+//     updateNewMessegeText (newText) {
+//         this._state.dialogPage.newMessegeText = newText;
+//         this._collSubscriber(this._state);
+//     }
+//
+// }
 
 
 

@@ -16,18 +16,18 @@ import {addPost} from "../../Redux/state";
 
 const MyPosts = (props) => {
 
-    let postElement = props.postData.map( p => <Post messege={p.messege} like={p.like}/>);
+    let postElement = props.postData.map( p => <Post message={p.message} like={p.like}/>);
 
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text);
-        props.updateNewPostText("");
+        debugger;
+        props.dispatch({type: 'ADD-POST'});
     }
     let onPostChange = () =>{
+        debugger;
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        props.dispatch({type: 'UP-DATE-NEW-POST-TEXT', newText: text});
     }
 
     return (

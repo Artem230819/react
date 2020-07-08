@@ -5,7 +5,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 
-// let postElement = postData.map( p => <Post message={p.messege} like={p.like}/>);
+// let postElement = postData.map( p => <Post message={p.message} like={p.like}/>);
 
 const Profile = (props) => {
 
@@ -17,8 +17,7 @@ const Profile = (props) => {
             <MyPosts
                 postData={props.state.profilePage.postData}
                 newPostText={props.state.profilePage.newPostText}
-                addPost={props.addPost}
-                updateNewPostText={props.updateNewPostText}
+                dispatch={props.dispatch}
             />
         </div>
     )
