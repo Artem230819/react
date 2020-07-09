@@ -88,7 +88,7 @@ export const addMessageChangeActionCreator = () =>{
     return  {type: ADD_MESSAGE}
 }
 
-export const onMessageChangeChangeActionCreator = (text) =>{
+export const onMessageChangeActionCreator = (text) =>{
     return  {type: UP_DATE_NEW_MESSAGE_TEXT, newText: text}
 }
 
