@@ -1,4 +1,8 @@
 
+const ADD_POST = 'ADD-POST';
+const UP_DATE_NEW_POST_TEXT = 'UP-DATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UP_DATE_NEW_MESSAGE_TEXT = 'UP-DATE-NEW-MESSAGE-TEXT';
 
 
 let store = {
@@ -72,6 +76,29 @@ let store = {
         }
     }
 }
+
+export const addPostActionCreator = () =>{
+    return {type: ADD_POST}
+}
+export const onPostChangeActionCreator = (text) => {
+    return  {type: UP_DATE_NEW_POST_TEXT, newText: text}
+}
+
+export const addMessageChangeActionCreator = () =>{
+    return  {type: ADD_MESSAGE}
+}
+
+export const onMessageChangeChangeActionCreator = (text) =>{
+    return  {type: UP_DATE_NEW_MESSAGE_TEXT, newText: text}
+}
+
+
+
+
+
+
+
+
 
 
 
