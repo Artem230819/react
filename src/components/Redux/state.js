@@ -1,8 +1,5 @@
-
-const ADD_POST = 'ADD-POST';
-const UP_DATE_NEW_POST_TEXT = 'UP-DATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UP_DATE_NEW_MESSAGE_TEXT = 'UP-DATE-NEW-MESSAGE-TEXT';
+import profileReducer from "../../redux/profileReducer";
+import dialogReducer from "../../redux/dialogReducer";
 
 
 let store = {
@@ -47,50 +44,15 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                like: 0
-            };
-            this._state.profilePage.postData.push(newPost);
-            this._state.profilePage.newPostText='';
-            this._collSubscriber(this._state);
-
-        } else if (action.type === 'UP-DATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            this._collSubscriber(this._state);
-
-        } else if (action.type === 'ADD-MESSAGE') {
-            let newMassage = {
-                id: 6,
-                message: this._state.dialogPage.newMessageText
-            };
-            this._state.dialogPage.messageData.push(newMassage);
-            this._state.dialogPage.newMessageText='';
-            this._collSubscriber(this._state);
-
-        } else if (action.type === 'UP-DATE-NEW-MESSAGE-TEXT') {
-            this._state.dialogPage.newMessageText = action.newText;
-            this._collSubscriber(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogPage = dialogReducer(this._state.dialogPage, action);
+        this._collSubscriber(this._state);
     }
 }
 
-export const addPostActionCreator = () =>{
-    return {type: ADD_POST}
-}
-export const onPostChangeActionCreator = (text) => {
-    return  {type: UP_DATE_NEW_POST_TEXT, newText: text}
-}
 
-export const addMessageChangeActionCreator = () =>{
-    return  {type: ADD_MESSAGE}
-}
 
-export const onMessageChangeActionCreator = (text) =>{
-    return  {type: UP_DATE_NEW_MESSAGE_TEXT, newText: text}
-}
+
 
 
 
