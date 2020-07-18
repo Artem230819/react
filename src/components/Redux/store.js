@@ -1,5 +1,5 @@
-import profileReducer from "../../redux/profileReducer";
-import dialogReducer from "../../redux/dialogReducer";
+import profileReducer from "../../Redux/profileReducer";
+import dialogReducer from "../../Redux/dialogReducer";
 
 
 let store = {
