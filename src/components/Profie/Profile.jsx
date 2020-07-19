@@ -14,10 +14,7 @@ debugger;
     return (
         <div className={c.content}>
             <ProfileInfo />
-            <MyPostsContainer
-                store={props.store}
-                dispatch={props.dispatch}
-            />
+            <MyPostsContainer/>
         </div>
     )
 }

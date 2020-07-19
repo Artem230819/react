@@ -3,6 +3,7 @@ import c from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {addPostActionCreator, onPostChangeActionCreator} from "../../../Redux/profileReducer";
 import MyPosts from "./MyPosts";
+import {connect} from "react-redux";
 
 
 // let postData = [
@@ -15,25 +16,46 @@ import MyPosts from "./MyPosts";
 //
 // let postElement = postData.map( p => <Post message={p.messege} like={p.like}/>);
 
-const MyPostsContainer = (props) => {
-    debugger;
+// const MyPostsContainer = (props) => {
+//     debugger;
+//
+//     let state = props.store;
+//
+//     let addPost = () => {
+//         props.dispatch(addPostActionCreator());
+//     }
+//     let onPostChange = (text) =>{
+//         props.dispatch(onPostChangeActionCreator(text));
+//     }
+//
+//     return(
+//         <MyPosts
+//             onPostChangeActionCreator={onPostChange}
+//             addPost={addPost}
+//             postData={state.profilePage.postData}
+//             newPostText={state.profilePage.newPostText}
+//         />
+//     )
+// }
 
-    let state = props.store;
-
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
+let mapStateToProps = (state) =>{
+    return {
+        postData : state.profilePage.postData,
+        newPostText : state.profilePage.newPostText
     }
-    let onPostChange = (text) =>{
-        props.dispatch(onPostChangeActionCreator(text));
-    }
-
-    return(<MyPosts
-            onPostChangeActionCreator={onPostChange}
-            addPost={addPost}
-            postData={state.profilePage.postData}
-            newPostText={state.profilePage.newPostText}
-        />
-    )
 }
+
+let mapDispatchToProps = (dispatch) =>{
+    return{
+        onPostChangeActionCreator: (text) =>{
+            dispatch(onPostChangeActionCreator(text));
+        },
+        addPost : () =>{
+            dispatch(addPostActionCreator());
+        }
+    }
+}
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;
