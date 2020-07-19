@@ -10,9 +10,10 @@ import store from "./Redux/redux-store";
 
 
 let rerender = () => {
+    debugger;
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.getState()}
+            <App store={store.getState()}
                  dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>,

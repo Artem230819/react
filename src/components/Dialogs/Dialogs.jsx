@@ -8,6 +8,8 @@ import {addMessageChangeActionCreator, onMessageChangeActionCreator} from "../..
 
 
 const Dialogs = (props) => {
+
+
     let dialogElement = props.state.dialogPage.dialogData.map(d => <DialogItem name={d.name} id={d.id} img={d.img}/>);
 
 
@@ -16,12 +18,12 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         debugger;
-        props.dispatch(addMessageChangeActionCreator());
+        props.addMessageChangeActionCreator();
     }
 
     let onMessageChange = (event) => {
         let text = event.target.value;
-        props.dispatch(onMessageChangeActionCreator(text));
+        props.onMessageChangeActionCreator(text);
     }
 
     let messageElement = props.state.dialogPage.messageData.map(m => <Message message={m.message}/>)
