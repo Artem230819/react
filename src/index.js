@@ -10,8 +10,6 @@ import {Provider} from "react-redux";
 //addPost('Samurai');
 
 
-let rerender = () => {
-    debugger;
     ReactDOM.render(
         <React.StrictMode>
             <Provider store={store}>
@@ -20,14 +18,6 @@ let rerender = () => {
         </React.StrictMode>,
         document.getElementById('root')
     );
-}
-
-rerender(store.getState());
-
-store.subscribe(() => {
-    let state = store.getState();
-    rerender(state);
-});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
