@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './users.module.css';
 import userPhoto from '../../img/user-avatar.png';
+import {unFollow} from "../../Redux/usersReducer";
 
 
 
@@ -28,7 +29,7 @@ import userPhoto from '../../img/user-avatar.png';
                             {u.followed
                                 ? <button onClick={() => {
                                     props.unfollow(u.id)
-                                }}>Unfollow</button>
+                                }}>unFollow</button>
                                 : <button onClick={() => {
                                     props.follow(u.id)
                                 }}>Follow</button>}
