@@ -4,6 +4,7 @@ import userPhoto from '../../img/user-avatar.png';
 import {unFollow} from "../../Redux/usersReducer";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
+import {userAPI} from "../../api/api";
 
 
 const Users = (props) => {
@@ -31,28 +32,18 @@ const Users = (props) => {
                         <div>
                             {u.followed
                                 ? <button onClick={() => {
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                        withCredentials: true,
-                                        headers: {
-                                            "API-KEY": "6dc5ad66-d169-443a-b138-e1ee3ee9c5f3"
-                                        }
-                                    })
-                                        .then(response => {
-                                            if (response.data.resultCode == 0) {
+                                    userAPI.deleteBtn(u.id)
+                                        .then(data => {
+                                            if (data.resultCode == 0) {
                                                 props.unfollow(u.id);
                                             }
                                             });
 
                                 }}>unFollow</button>
                                 : <button onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                        withCredentials: true,
-                                        headers: {
-                                            "API-KEY": "6dc5ad66-d169-443a-b138-e1ee3ee9c5f3"
-                                        }
-                                    })
-                                        .then(response => {
-                                            if (response.data.resultCode == 0) {
+                                    userAPI.postBtn(u.id)
+                                        .then(data => {
+                                            if (data.resultCode == 0) {
                                                 props.follow(u.id);
                                             }
                                         });
