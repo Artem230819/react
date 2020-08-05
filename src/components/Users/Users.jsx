@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './users.module.css';
 import userPhoto from '../../img/user-avatar.png';
-import {unFollow} from "../../Redux/usersReducer";
+import {toggleIsProgress, unFollow} from "../../Redux/usersReducer";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
 import {userAPI} from "../../api/api";
@@ -31,21 +31,25 @@ const Users = (props) => {
                         </NavLink>
                         <div>
                             {u.followed
-                                ? <button onClick={() => {
+                                ? <button disabled={props.followingInProgress.some (id=> id === u.id)} onClick={() => {
+                                    props.toggleIsProgress(true, u.id);
                                     userAPI.deleteBtn(u.id)
                                         .then(data => {
                                             if (data.resultCode == 0) {
                                                 props.unfollow(u.id);
                                             }
+                                            props.toggleIsProgress(false, u.id);
                                             });
 
                                 }}>unFollow</button>
-                                : <button onClick={() => {
+                                : <button disabled={props.followingInProgress.some (id=> id === u.id)} onClick={() => {
+                                    props.toggleIsProgress(true, u.id);
                                     userAPI.postBtn(u.id)
                                         .then(data => {
                                             if (data.resultCode == 0) {
                                                 props.follow(u.id);
                                             }
+                                            props.toggleIsProgress(false, u.id);
                                         });
 
                                 }}>Follow</button>}
